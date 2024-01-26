@@ -1,0 +1,10 @@
+CREATE FUNCTION GetTicketsByPassengerId
+    (@PassengerId INT)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT T.*
+    FROM Tickets T
+    WHERE T.PassengerId = @PassengerId
+);

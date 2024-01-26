@@ -1,0 +1,9 @@
+CREATE PROCEDURE GetRoutesByBusStopLocation
+    @BusStopLocation NVARCHAR(450)
+AS
+BEGIN
+    SELECT  R.* FROM [Routes] R
+	JOIN RouteStops RS ON R.Id = RS.RoutesId 
+	JOIN BusStops BS ON RS.StopsId=BS.Id
+	WHERE [Location] = @BusStopLocation
+END;
